@@ -17,17 +17,30 @@ public class nQueen {
             return true;
         }
         for (int i = 0; i < N; i++) {
-            if((ld[i - col + N -1]!= 1 && rd[i+col] != 1) && cl[i] != 1){
+
+            if (ld[i - col + N - 1] == 0 && rd[i + col] == 0 && cl[i] == 0) {
+            
                 sol[i][col] = 1;
-                ld[i-col+N-1] = rd[i+col] = cl[i] = 1;
-                if(findNq(sol, col + 1)){
-                    return true;
-                }
-                sol[i][col]=0;
-                ld[i-col+N-1] = rd[i+col] = ld[i] = 0;
+            
+                ld[i - col + N - 1] = rd[i + col] = cl[i] = 1;
+                
+                if (findNq(sol, col + 1)) {
+            
+            return true;
+            
             }
-        }
-        return false;
+            
+            // Backtrack
+            
+            sol[i][col] = 0;
+            
+            ld[i - col + N - 1] = rd[i + col] = cl[i] = 0;
+            
+            }
+            
+            }
+            
+            return false;
     }
     static boolean PrintNQ(){
         int[][] board = {{0 ,0 ,0 ,0},
@@ -42,6 +55,7 @@ public class nQueen {
         return true;
     }
     public static void main(String[] args) {
+        System.out.println();
         System.out.println();
         PrintNQ();
     }
