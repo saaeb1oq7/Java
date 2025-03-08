@@ -1,7 +1,7 @@
 import java.util.*;
 public class IndetifiorValidator {
     public boolean Indetifer(String str){
-        if(str.isEmpty() || str == null){
+        if(str == null ||str.isEmpty() ){
             return false;
         }
         if(!Character.isLetter(str.charAt(0))&& str.charAt(0) != '_'){
